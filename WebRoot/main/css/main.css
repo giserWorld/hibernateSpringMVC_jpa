@@ -1,0 +1,15 @@
+html,body{
+	width:100%;
+	height:100%;
+	padding:0px;
+	margin:0px;
+}
+.switch_a{
+    margin-right: 10px;
+}
+.messagediv{
+    padding: 10px;
+}
+.switch_div{
+    margin: 10px 0px;
+}
