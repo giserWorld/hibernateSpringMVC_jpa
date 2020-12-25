@@ -8,7 +8,7 @@ import java.util.Map;
  *
  */
 
-public interface LoginService {
+public interface TestService {
 	
 	
 	/**

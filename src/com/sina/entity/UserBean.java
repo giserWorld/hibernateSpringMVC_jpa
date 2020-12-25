@@ -1,4 +1,4 @@
-package com.sina.entityBean;
+package com.sina.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
