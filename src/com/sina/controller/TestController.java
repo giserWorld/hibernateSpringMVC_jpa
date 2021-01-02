@@ -11,26 +11,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sina.service.LoginService;
+import com.sina.service.TestService;
 
 @Controller//控制层
-public class LoginController {
+public class TestController {
 
 	@Resource//java自动注入bean
-	private LoginService LoginService;//用户登录服务
+	private TestService testService;
 	
-	//登录用户
-	@RequestMapping("/login.action")
+	//测试服务
+	@RequestMapping("/test.action")
 	@ResponseBody 
-	public Object loginController(HttpServletRequest request,HttpServletResponse response){
+	public Object testController(HttpServletRequest request,HttpServletResponse response){
 		Map<String,Object> map=new HashMap<String,Object>();
-		map.put("mgs","获取数据成功！");
+		map.put("mgs","测试成功！");
 		map.put("code",0);
 		map.put("data",null);
-		String username=request.getParameter("username");
-		String password=request.getParameter("password");
-		//查询登录用户
-		Map<String, Object> usermap = LoginService.getByUsernameAndpassword(username, password);
+		String userid=request.getParameter("userid");
+		Map<String, Object> usermap = testService.getByUserById(userid);
 		if(usermap!=null){
 			map.put("data",usermap);
 		}

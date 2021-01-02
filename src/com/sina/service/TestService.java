@@ -2,21 +2,16 @@ package com.sina.service;
 
 import java.util.Map;
 
+import com.sina.entity.UserBean;
+
 /**
- * LoginService
- * @author zzy
+ * TestService
+ * @author 
  *
  */
 
 public interface TestService {
 	
-	
-	/**
-	 * 通过用户名与密码查询实体对象
-	 * @param w_username
-	 * @param password
-	 * @return
-	 */
-     public Map<String, Object> getByUsernameAndpassword(String username,String password,String path);
-     
+	 //通过id查找用户
+     public Map<String,Object> getByUserById(String userid);
 }

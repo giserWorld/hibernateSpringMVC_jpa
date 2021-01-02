@@ -8,12 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sina.dao.BaseDAO;
-import com.sina.service.TestService;
+import com.sina.entity.UserBean;
+import com.sina.service.LoginService;
 
 
-@Service("TestService")//暴露出自定义名字的service bean
+@Service("LoginService")//暴露出自定义名字的service bean
 @Transactional//事务注解为transactional bean
-public class TestServiceImpl implements TestService {
+public class LoginServiceImpl implements  LoginService{
 	//自动注入
 	//@Resource
 	//private BaseDAO<UserBean> uDAO;
@@ -22,10 +23,11 @@ public class TestServiceImpl implements TestService {
 	
 	
 	@Override
-	public Map<String,Object> getByUserById(String userid) {
-		String sql="select * from tb_user where id="+userid;
-		Map<String,Object> usermap = mDAO.getBySQL1(sql);
-		return usermap;
+	public Map<String, Object> getByUsernameAndpassword(String username,
+			String password) {
+		String sql = "select id,name from tb_user where id=1";
+		Map<String, Object> mapUser = mDAO.getBySQL1(sql);
+		return mapUser;
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.sina.dao;
+package com.sina.dao.impl;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -7,11 +7,14 @@ import java.util.List;
 import java.util.Map;
 
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.sina.dao.BaseDAO;
 
 @Repository("baseDAO")  
 @SuppressWarnings("all")  
@@ -71,7 +74,8 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
    	
    	@Override
    	public T getBySQL1(String sql) {
-   		System.out.println("session:"+this.getCurrentSession());
+   		System.out.println("*****session*****:"+this.getCurrentSession());
+   		//map对象列表
    		List<T> list = this.getCurrentSession().createSQLQuery(sql).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP).list();
    		if(list == null || list.size() <=0 ){
    			return null;
